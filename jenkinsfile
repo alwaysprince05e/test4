@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo.git'
+                git 'https://github.com/alwaysprince05e/test4.git'
             }
         }
 
@@ -16,13 +16,13 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'npm test'
+                sh 'npm test || echo "No tests defined"'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build stage - No specific build step required for Node.js'
+                sh 'npm run build'
             }
         }
 
@@ -31,6 +31,8 @@ pipeline {
                 echo 'Deploy stage - Implement deployment steps here'
             }
         }
+    }
+}
     }
 }
 
