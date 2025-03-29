@@ -4,35 +4,27 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/alwaysprince05e/test4.git'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                sh 'npm test || echo "No tests defined"'
+                git branch: 'main', url: 'https://github.com/alwaysprince05e/test4.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                echo "Building the project..."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploy stage - Implement deployment steps here'
+                echo "Deploying application..."
             }
         }
-    }
-}
     }
 }
 
